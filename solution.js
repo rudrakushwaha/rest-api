@@ -61,6 +61,8 @@ app.get("/posts", (req, res) => {
     res.json({ column1, column2, column3 });
   })
 
+})
+
 
 
 
@@ -80,6 +82,8 @@ Note.findOne({ _id: mongoose.Types.ObjectId.createFromHexString(req.params.id) }
 .catch(error => {
   console.log(error)
 });
+
+})
 
 
 
