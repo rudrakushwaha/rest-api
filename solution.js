@@ -328,11 +328,16 @@ app.post("/posts", (req, res) => {
 app.patch("/posts/:id", async (req, res) => {
   try {
     const foundNote = await Note.findOne({ _id: mongoose.Types.ObjectId.createFromHexString(req.params.id) });
+      newId=req.body.columnId;
 
+
+    
     if (!foundNote) {
       return res.status(404).json({ message: "Post not found" });
     }
-
+    if(req.body.columnId){
+      foundNote.columnId=newId
+    }
     if (req.body.title) {
       foundNote.title = req.body.title;
     }
