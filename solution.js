@@ -8,6 +8,14 @@ const mongoose = require('mongoose')
 const app = express();
 const port = 4000;
 
+const cors = require('cors');
+const corsOptions ={
+  origin: '*', 
+  credentials: true,
+  optionsSuccessStatus: 200
+}
+app.use(cors(corsOptions));
+
 const dotenv = require("dotenv")   //requiring dotenv
 dotenv.config({ path: "./config.env" })
 
