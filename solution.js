@@ -89,15 +89,7 @@ Note.findOne({ _id: mongoose.Types.ObjectId.createFromHexString(req.params.id) }
 
 // POST a new post
 app.post("/posts", (req, res) => {
-  const newId = lastId += 1;
-  const post = {
-    id: newId,
-    title: req.body.title,
-    content: req.body.content,
-    author: req.body.author,
-    date: new Date(),
-    // columnId: req.body.columnId
-  };
+ 
   const note = new Note(
     {
       title: req.body.title,
@@ -109,7 +101,7 @@ app.post("/posts", (req, res) => {
   note.save()
 
 
-  res.status(201).json(post);
+  res.status(201).json(note);
 });
 
 
